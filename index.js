@@ -3,18 +3,21 @@ const par = document.querySelector("#paragraph");
 const parRus = document.querySelector("#paragraph-rus");
 
 fetch("./russian.txt")
-  .then((response) => response.arrayBuffer())
+  .then((response) => {
+    renderLoading(true); // Показываем сообщение о загрузке перед началом загрузки
+    return response.arrayBuffer();
+  })
   .then((buffer) => {
     const decoder = new TextDecoder("windows-1251");
     const text = decoder.decode(buffer);
     words = text.split(/\s+/);
     console.log(words);
-    renderLoading(true);
+    renderLoading(false); // Скрываем сообщение о загрузке после завершения загрузки
   })
-  .catch((error) => console.error("Ошибка при загрузке файла:", error))
-  .finally(()=>{
-    renderLoading(false)
-  })
+  .catch((error) => {
+    renderLoading(false); // Скрываем сообщение о загрузке в случае ошибки
+    console.error("Ошибка при загрузке файла:", error);
+  });
 
 function changeText() {
   if (words.length > 0) {
@@ -111,16 +114,16 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-const renderLoading = (isLoading, evt) => {
-
+// Функция для отображения сообщения о загрузке
+const renderLoading = (isLoading) => {
   if (isLoading) {
-    par.textContent = "Словарь загружен";
-    // parRus.textContent = "Словарь загружен";
+    par.textContent = "Загрузка словаря...";
+    // parRus.textContent = "Загрузка словаря...";
   } else {
-    button.textContent = "Сохранить";
+    par.textContent = ""; // Очищаем сообщение
+    parRus.textContent = ""; // Очищаем сообщение
   }
 };
-
 
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", changeText);

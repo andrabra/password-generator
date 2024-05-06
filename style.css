@@ -71,7 +71,8 @@ body {
   font-style: normal;
   color: white;
   border: 1px solid white;
-  width: 75%;
+  width: 300px; /* Фиксированная ширина кнопки */
+  height: 100px; 
   font-size: clamp(1rem, 0.661rem + 1.696vw, 2.188rem);
 }
 #btn:hover {
