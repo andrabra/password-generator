@@ -14,7 +14,7 @@ fetch("./russian.txt")
 
 function changeText() {
   if (words.length > 0) {
-    const num = getRandomInt(0, 20);
+    const num = getRandomInt(0, 99);
     const wordFirst = getRandomWord(0, 765732);
     const wordSecond = getRandomWord(765732, 1531464);
     const specSymbol = getRandomSpecialSymbol();

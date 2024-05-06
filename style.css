@@ -4,20 +4,36 @@
 
 html,
 body {
-  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  margin: 0 auto;
   padding: 0;
   height: 100%; /* Задаёт высоту на 100% высоты окна браузера */
   width: 100%; /* Задаёт ширину на 100% ширины окна браузера */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .container {
-  width: 100%;
-  min-height: 100%;
+  min-width: 70%;
+  min-height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
+  border-radius: 10px;
 }
 .text {
   padding: 10px;
@@ -33,6 +49,10 @@ body {
   margin-top: 40px;
   background-color: transparent;
   font-size: 24px;
+  border-radius: 10px;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 #btn:hover {
   background-color: black;
