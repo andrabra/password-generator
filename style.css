@@ -71,15 +71,14 @@ body {
   font-style: normal;
   color: white;
   border: 1px solid white;
-  width: 300px; /* Фиксированная ширина кнопки */
-  height: 100px; 
+  /* width: 300px;
+  height: 100px; */
   font-size: clamp(1rem, 0.661rem + 1.696vw, 2.188rem);
 }
 #btn:hover {
   background-color: white;
   color: black;
   cursor: pointer;
-  
 }
 #btn:active {
   color: red;
@@ -99,7 +98,11 @@ body {
     font-size: 15px;
     word-break: break-all;
   }
-  .title{
+  .title {
     font-size: 20px;
+  }
+  #btn {
+    width: 300px;
+    height: 100px;
   }
 }
