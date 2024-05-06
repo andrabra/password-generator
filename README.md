@@ -18,6 +18,9 @@
 
 Для запуска генератора паролей на своем устройстве, просто скопируйте и вставьте код из репозитория в ваш проект, либо используйте веб-версию, которая доступна по [ссылке](https://andrabra.github.io/password-generator/).
 
+## Источник словаря
+[ссылка](https://github.com/danakt/russian-words/tree/master)
+
 # Word-based password generator
 
 This password generator provides a simple and secure way to create passwords that are easy to remember, but difficult for attackers to pick up. Unlike traditional passwords consisting of random characters, this generator uses a set of human-readable words, which makes them more memorable and easy to use.
@@ -38,4 +41,6 @@ Just click the generate password button. The script will return the password in 
 
 To run the password generator on your device, simply copy and paste the code from the repository into your project, or use the web version, which is available at the [link](https://andrabra.github.io/password-generator/).
 
+## Dictionary source
+[link](https://github.com/danakt/russian-words/tree/master)
 
