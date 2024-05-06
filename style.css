@@ -75,8 +75,10 @@ body {
   font-size: clamp(1rem, 0.661rem + 1.696vw, 2.188rem);
 }
 #btn:hover {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  
 }
 #btn:active {
   color: red;
