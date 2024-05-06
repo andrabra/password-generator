@@ -14,7 +14,7 @@ body {
   height: 100%; /* Задаёт высоту на 100% высоты окна браузера */
   width: 100%; /* Задаёт ширину на 100% ширины окна браузера */
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
 }
@@ -23,6 +23,8 @@ body {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
+  font-size: clamp(1rem, 0.661rem + 1.696vw, 2.188rem);
+  text-align: center;
 }
 
 .container {
@@ -39,7 +41,8 @@ body {
   padding: 10px;
   margin: 10px;
   min-height: 50px;
-  font-size: 24px;
+  font-size: clamp(1rem, 0.839rem + 0.804vw, 1.563rem);
+  text-wrap: wrap;
 }
 #paragraph {
 }
@@ -53,6 +56,7 @@ body {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
+  font-size: clamp(1rem, 0.661rem + 1.696vw, 2.188rem);
 }
 #btn:hover {
   background-color: black;
