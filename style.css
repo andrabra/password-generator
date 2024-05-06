@@ -20,7 +20,20 @@ body {
   background-color: black;
   color: white;
 }
-
+.title-container {
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  align-items: center;
+  justify-content: space-around;
+}
+.svg-icon {
+  width: clamp(3.125rem, 1.339rem + 8.929vw, 9.375rem);
+  aspect-ratio: 1 / 1;
+  vertical-align: middle;
+  fill: currentColor;
+  overflow: hidden;
+}
 .title {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
@@ -43,13 +56,13 @@ body {
   padding: 10px;
   margin: 10px;
   min-height: 50px;
-  font-size: clamp(1rem, 0.839rem + 0.804vw, 1.563rem);
+  font-size: clamp(1.25rem, 0.714rem + 2.679vw, 3.125rem);
   text-wrap: wrap;
 }
 #paragraph {
 }
 #btn {
-  padding: 10px;
+  padding: 25px;
   margin: 10px;
   margin-top: 40px;
   background-color: transparent;
