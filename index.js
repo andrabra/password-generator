@@ -9,8 +9,12 @@ fetch("./russian.txt")
     const text = decoder.decode(buffer);
     words = text.split(/\s+/);
     console.log(words);
+    renderLoading(true);
   })
-  .catch((error) => console.error("Ошибка при загрузке файла:", error));
+  .catch((error) => console.error("Ошибка при загрузке файла:", error))
+  .finally(()=>{
+    renderLoading(false)
+  })
 
 function changeText() {
   if (words.length > 0) {
@@ -106,6 +110,17 @@ function getRandomSpecialSymbol() {
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+const renderLoading = (isLoading, evt) => {
+
+  if (isLoading) {
+    par.textContent = "Словарь загружен";
+    parRus.textContent = "Словарь загружен";
+  } else {
+    button.textContent = "Сохранить";
+  }
+};
+
 
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", changeText);
