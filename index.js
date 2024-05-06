@@ -115,7 +115,7 @@ const renderLoading = (isLoading, evt) => {
 
   if (isLoading) {
     par.textContent = "Словарь загружен";
-    parRus.textContent = "Словарь загружен";
+    // parRus.textContent = "Словарь загружен";
   } else {
     button.textContent = "Сохранить";
   }
