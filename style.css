@@ -14,7 +14,8 @@ body {
   height: 100%; /* Задаёт высоту на 100% высоты окна браузера */
   width: 100%; /* Задаёт ширину на 100% ширины окна браузера */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 70px;
   align-items: center;
   flex-direction: column;
   background-color: black;
@@ -104,5 +105,9 @@ body {
   #btn {
     width: 300px;
     height: 100px;
+  }
+  html, body{
+    justify-content: space-around;
+    gap: 0px;
   }
 }
