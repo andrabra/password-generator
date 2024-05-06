@@ -23,7 +23,6 @@ body {
 .title-container {
   display: flex;
   flex-direction: column;
-  z-index: 10;
   align-items: center;
   justify-content: space-around;
 }
@@ -33,6 +32,7 @@ body {
   vertical-align: middle;
   fill: currentColor;
   overflow: hidden;
+  animation: spin 1s ease 1;
 }
 .title {
   font-family: "Press Start 2P", system-ui;
@@ -49,14 +49,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid white; */
-  /* border-radius: 10px; */
 }
 .text {
+  max-width: 100%;
   padding: 10px;
   margin: 10px;
-  min-height: 60px;
-  font-size: clamp(1.25rem, 0.714rem + 2.679vw, 3.125rem);
+  min-height: 70px;
+  font-size: clamp(1.25rem, 0.893rem + 1.786vw, 2.5rem);
   text-wrap: wrap;
 }
 #paragraph {
@@ -72,6 +71,7 @@ body {
   font-style: normal;
   color: white;
   border: 1px solid white;
+  width: 75%;
   font-size: clamp(1rem, 0.661rem + 1.696vw, 2.188rem);
 }
 #btn:hover {
@@ -80,4 +80,23 @@ body {
 }
 #btn:active {
   color: red;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (width < 425px) {
+  .text {
+    font-size: 15px;
+    word-break: break-all;
+  }
+  .title{
+    font-size: 20px;
+  }
 }

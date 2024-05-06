@@ -26,7 +26,7 @@ function changeText() {
       specSymbol
     );
   } else {
-    par.textContent = "Нет доступных слов";
+    par.textContent = "Загрузка словаря...";
   }
 }
 
