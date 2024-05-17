@@ -1,23 +1,63 @@
 let words = [];
 const par = document.querySelector("#paragraph");
 const parRus = document.querySelector("#paragraph-rus");
+const btn = document.querySelector("#btn");
+const initialBtnText = btn.textContent;
 
-fetch("./russian.txt")
-  .then((response) => {
+//? Реализация через цепочку then
+// fetch("./russian.txt")
+//   .then((response) => {
+//     renderLoading(true); // Показываем сообщение о загрузке перед началом загрузки
+//     return response.arrayBuffer();
+//   })
+//   .then((buffer) => {
+//     const decoder = new TextDecoder("windows-1251");
+//     const text = decoder.decode(buffer);
+//     words = text.split(/\s+/);
+//     console.log(words);
+//     renderLoading(false); // Скрываем сообщение о загрузке после завершения загрузки
+//   })
+//   .catch((error) => {
+//     renderLoading(false); // Скрываем сообщение о загрузке в случае ошибки
+//     console.error("Ошибка при загрузке файла:", error);
+//   });
+
+
+// Функция для отображения сообщения о загрузке
+const renderLoading = (isLoading) => {
+  if (isLoading) {
+    par.textContent = "Загрузка словаря...";
+    btn.setAttribute("disabled", "");
+    btn.textContent = "Дождитесь загрузки";
+  } else {
+    par.textContent = "Словарь загружен!"; 
+    parRus.textContent = ""; 
+    btn.removeAttribute("disabled", "");
+    btn.textContent = initialBtnText;
+  }
+};
+
+async function loadRussianText() {
+  try {
     renderLoading(true); // Показываем сообщение о загрузке перед началом загрузки
-    return response.arrayBuffer();
-  })
-  .then((buffer) => {
+
+    const response = await fetch("./russian.txt");
+    const buffer = await response.arrayBuffer();
+
     const decoder = new TextDecoder("windows-1251");
     const text = decoder.decode(buffer);
     words = text.split(/\s+/);
+
     console.log(words);
-    renderLoading(false); // Скрываем сообщение о загрузке после завершения загрузки
-  })
-  .catch((error) => {
-    renderLoading(false); // Скрываем сообщение о загрузке в случае ошибки
+  } catch (error) {
     console.error("Ошибка при загрузке файла:", error);
-  });
+  } finally {
+    renderLoading(false); // Скрываем сообщение о загрузке после завершения загрузки или в случае ошибки
+  }
+}
+
+// Вызов функции для загрузки текста
+loadRussianText();
 
 function changeText() {
   if (words.length > 0) {
@@ -114,16 +154,4 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// Функция для отображения сообщения о загрузке
-const renderLoading = (isLoading) => {
-  if (isLoading) {
-    par.textContent = "Загрузка словаря...";
-    // parRus.textContent = "Загрузка словаря...";
-  } else {
-    par.textContent = ""; // Очищаем сообщение
-    parRus.textContent = ""; // Очищаем сообщение
-  }
-};
-
-const btn = document.querySelector("#btn");
 btn.addEventListener("click", changeText);

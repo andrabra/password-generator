@@ -63,7 +63,7 @@ body {
 }
 #btn {
   padding: 25px;
-  margin: 10px;
+  /* margin: 10px; */
   margin-top: 40px;
   background-color: transparent;
   font-size: 24px;
@@ -74,7 +74,9 @@ body {
   border: 1px solid white;
   /* width: 300px;
   height: 100px; */
+  width: fit-content;
   font-size: clamp(1rem, 0.661rem + 1.696vw, 2.188rem);
+  transition: background-color 0.3s, color 0.3s, opacity 0.3s;
 }
 #btn:hover {
   background-color: white;
@@ -83,6 +85,14 @@ body {
 }
 #btn:active {
   color: red;
+}
+
+#btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: transparent;
+  color: grey;
+  border: 1px solid grey;
 }
 
 @keyframes spin {
@@ -106,7 +116,8 @@ body {
     width: 300px;
     height: 100px;
   }
-  html, body{
+  html,
+  body {
     justify-content: space-around;
     gap: 0px;
   }
